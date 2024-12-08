@@ -293,9 +293,9 @@ def main():
                 0: "After 12 NOON"
             }
             
-            st.write("Time options for wake up:")
-            for value, label in waketime_options.items():
-                st.write(f"{value}: {label}")
+            #st.write("Time options for wake up:")
+            #for value, label in waketime_options.items():
+            #    st.write(f"{value}: {label}")
                 
             preferred_waketime = st.select_slider(
                 "What time would you get up if you were entirely free to plan your day?",
@@ -313,9 +313,9 @@ def main():
                 0: "After 3:00 AM"
             }
             
-            st.write("Time options for bedtime:")
-            for value, label in bedtime_options.items():
-                st.write(f"{value}: {label}")
+            #st.write("Time options for bedtime:")
+            #for value, label in bedtime_options.items():
+            #    st.write(f"{value}: {label}")
                 
             preferred_bedtime = st.select_slider(
                 "What time would you go to bed if you were entirely free to plan your evening?",
@@ -357,15 +357,15 @@ def main():
                 st.session_state.submitted_to_monday = True
         
         # Display results summary
-        st.subheader("Patient Information")
-        for key, value in st.session_state.patient_info.items():
+        #st.subheader("Patient Information")
+        #for key, value in st.session_state.patient_info.items():
             st.write(f"**{key}:** {value}")
             
-        for survey, data in st.session_state.results.items():
-            st.subheader(survey)
-            for key, value in data.items():
-                if key != 'responses':
-                    st.write(f"**{key}:** {value}")
+        #for survey, data in st.session_state.results.items():
+        #    st.subheader(survey)
+        #    for key, value in data.items():
+        #        if key != 'responses':
+        #            st.write(f"**{key}:** {value}")
         
         if st.button("Start New Assessment"):
             st.session_state.clear()
