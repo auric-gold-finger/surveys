@@ -61,9 +61,6 @@ class MondayAPI:
                 "columnValues": json.dumps(column_values)
             }
 
-            st.write("Sending to Monday.com:")
-            st.write("Board ID:", st.secrets["monday"]["board_id"])
-            st.write("Column Values:", column_values)
             
             response = requests.post(
                 self.api_url,
@@ -71,19 +68,19 @@ class MondayAPI:
                 json={"query": query, "variables": variables}
             )
 
-            st.write("Response Status:", response.status_code)
-            st.write("Response:", response.json())
+            #st.write("Response Status:", response.status_code)
+            #st.write("Response:", response.json())
 
             if response.status_code != 200:
-                raise Exception(f"Monday.com API error: {response.text}")
+                raise Exception("API error:") # {response.text}")
 
             response_json = response.json()
             if "errors" in response_json:
-                raise Exception(f"Monday.com API error: {response_json['errors']}")
+                raise Exception("API error") #: {response_json['errors']}")
                 
             if "data" not in response_json or "create_item" not in response_json["data"]:
-                st.write("Full API Response:", response_json)  # Debug output
-                raise Exception("Unexpected API response structure")
+                #st.write("Full API Response:", response_json)  # Debug output
+                raise Exception("Unexpected response structure")
 
             return response_json["data"]["create_item"]["id"]
 
