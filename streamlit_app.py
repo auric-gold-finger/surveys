@@ -131,7 +131,7 @@ def main():
         st.header("Patient Information")
         with st.form("patient_info_form"):
             name = st.text_input("Name")
-            age = st.number_input("Age", min_value=0, max_value=120)
+            age = st.number_input("Age", min_value=25, max_value=120, value=40)
             gender = st.selectbox("Gender", ["Male", "Female", "Other"])  # Exact matches
             height = st.number_input("Height (cm)", min_value=0)
             weight = st.number_input("Weight (kg)", min_value=0)
