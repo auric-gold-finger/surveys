@@ -353,13 +353,13 @@ def main():
         if 'submitted_to_monday' not in st.session_state:
             monday = MondayAPI()
             if monday.create_item(st.session_state.patient_info, st.session_state.results):
-                st.success("Results have been saved successfully to Monday.com!")
+                st.success("Results have been saved successfully")
                 st.session_state.submitted_to_monday = True
         
         # Display results summary
         #st.subheader("Patient Information")
         #for key, value in st.session_state.patient_info.items():
-            st.write(f"**{key}:** {value}")
+        #   st.write(f"**{key}:** {value}")
             
         #for survey, data in st.session_state.results.items():
         #    st.subheader(survey)
